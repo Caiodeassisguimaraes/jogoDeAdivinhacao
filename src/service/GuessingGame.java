@@ -75,23 +75,24 @@ public class GuessingGame {
 		System.out.println("Tente adivinhar um número entre 1 e 100.");
 		System.out.println("Você tem " + getMaxTries() + " tentativas.");
 		System.out.println();
-		while (tries < getMaxTries()) {
-			tries++;
+		while (tries < maxTries) {
 			System.out.print("Digite o seu palpite: ");
 			int guess = sc.nextInt();
 			if (testGuess(guess)) {
 				break;
-			} /*
-				 * else { System.out.println("Você perdeu! O número era: " + randomNumber +
-				 * "."); }
-				 */
-
+			}
 		}
+		if (tries == maxTries) {
+			System.out.println("Você perdeu! O número era: " + randomNumber + ".");
+		}
+
 		sc.close();
 	}
 
 	// This method tests the player's guess
 	public boolean testGuess(int guess) {
+
+		tries++;
 		if (guess == randomNumber) {
 			System.out.println("Parabéns! Você acertou o número em " + tries + " tentativas.");
 			return true;
@@ -101,8 +102,8 @@ public class GuessingGame {
 		} else {
 			System.out.println("O número é menor do que " + guess + ".");
 			System.out.println();
-
 		}
+
 		return false;
 	}
 
