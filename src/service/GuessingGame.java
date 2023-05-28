@@ -67,28 +67,6 @@ public class GuessingGame {
 		return randomNumber;
 	}
 
-	// This method starts the game
-	public void startGame() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Bem-vindo ao jogo de adivinhação!");
-		System.out.println();
-		System.out.println("Tente adivinhar um número entre 1 e 100.");
-		System.out.println("Você tem " + getMaxTries() + " tentativas.");
-		System.out.println();
-		while (tries < maxTries) {
-			System.out.print("Digite o seu palpite: ");
-			int guess = sc.nextInt();
-			if (testGuess(guess)) {
-				break;
-			}
-		}
-		if (tries == maxTries) {
-			System.out.println("Você perdeu! O número era: " + randomNumber + ".");
-		}
-
-		sc.close();
-	}
-
 	// This method tests the player's guess
 	public boolean testGuess(int guess) {
 
