@@ -9,7 +9,6 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		GuessingGame game = new GuessingGame(101, 10);
-		System.out.println(game.getRandomNumber());
 		game.startGame();
 
 		sc.close();
